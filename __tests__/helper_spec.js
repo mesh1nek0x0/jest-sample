@@ -9,7 +9,7 @@ describe("test", () => {
 
   test("integration", async () => {
     const helper = new Helper();
-    const result = await helper.getData();
+    const result = await helper.getData(42932);
     expect(result.body.id).toBe("42932");
   });
 
@@ -31,9 +31,10 @@ describe("test", () => {
     expect(result.code).toBe(1);
   });
 
-  test("spy", () => {
-    const cb = jest.fn();
-    setTimeout('hoge', cb('test test'), 100);
-    expect(cb.mock.calls[0][0]).toBe('test test');
+  test("spy", async () => {
+    axios.get.mockResolvedValue({})
+    const helper = new Helper();
+    const result = await helper.getData(123456789);
+    expect(axios.get.mock.calls[0][0]).toBe("http://dummy.restapiexample.com/api/v1/employee/123456789");
   });
 });

@@ -4,7 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "eslint": "eslint --config ./.eslintrc ./index.js helper.js __tests__"
   },
   "dependencies": {
     "axios": "^0.19.0"

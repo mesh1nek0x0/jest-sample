@@ -30,4 +30,10 @@ describe("test", () => {
     const result = await helper.getData();
     expect(result.code).toBe(1);
   });
+
+  test("spy", () => {
+    const cb = jest.fn();
+    setTimeout('hoge', cb('test test'), 100);
+    expect(cb.mock.calls[0][0]).toBe('test test');
+  });
 });
